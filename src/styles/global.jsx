@@ -18,4 +18,5 @@ export default createGlobalStyle`
         font-size: 16px;
         color: ${props => props.theme.text};
     }
+
 `
