@@ -5,7 +5,7 @@ export const simContext = createContext()
 
 const SimProvider = ({ children }) => {
 
-    const { simulation, setSimulation } = useSimutation(null)
+    const { simulation } = useSimutation(null)
 
     return (
         <simContext.Provider value={simulation}>
