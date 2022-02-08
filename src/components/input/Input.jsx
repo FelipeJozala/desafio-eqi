@@ -1,11 +1,12 @@
 import React from 'react';
 import { StyledInput, Underline, InputContainer } from './styles';
 
-const Input = () => {
+const Input = ( props ) => {
     return (
         <InputContainer>
-            <StyledInput pattern='[0-9]'/>
-            <Underline></Underline>
+            <Underline>
+                <StyledInput {...props} />
+            </Underline>
         </InputContainer>
     );
 };
