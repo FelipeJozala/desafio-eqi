@@ -1,33 +1,31 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const useSimutation = (url) => {
-
+const useSimutation = ( dataUrl ) => {
+    
     const [ data, setData ] = useState(null)
     const [ loading, setloading ] = useState(false)
-    const [ error, setError ] = useState(null)
+    const [ error, setError ] = useState('')
 
-    useEffect(() => {
+    useEffect(() => { 
 
-        if (url) { 
+        const fetchData = async (url) => {
             setloading(true)
 
             axios.get(url).then((resp) => {
-
                 setData(resp.data)
-
             }).catch((err) => {
-
                 setError(err)
-                
             }).finally(() => {
                 setloading(false)
-            })} else {
-                return
-            }
-    },[url])
+            })
+        };
 
-  return { data, loading, error }
+        fetchData(dataUrl)
+    
+    },[dataUrl])
+
+  return { data, error, loading }
   
 };
 

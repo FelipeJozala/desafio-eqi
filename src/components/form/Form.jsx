@@ -2,7 +2,7 @@ import React from 'react';
 import ButtonsGroup from '../buttons-group/ButtonsGroup';
 import Label from '../label/Label';
 import Input from '../input/Input';
-import { StyledForm ,FormControls, FormItem, Row, ControlButton, ControlItem } from './styles';
+import { StyledForm , FormItem, Row, ControlButton } from './styles';
 
 
 const Form = () => {
@@ -26,6 +26,7 @@ const Form = () => {
 
     return (
         <StyledForm action="">
+		<h2>Simulador</h2>
             <Row>
                 <FormItem>		
                     <Label text={'Rendimentos'} hasTooltip tooltip={'lorem'}/>
@@ -66,14 +67,14 @@ const Form = () => {
 				    <Input type={'number'} id='cdi' name='cdi' pattern={'[0-9]{0,5}'}/>
                 </FormItem>
 			</Row>
-            <FormControls>
-				<ControlItem>					
+            <Row>
+				<FormItem>					
 					<ControlButton>Limpar Campos</ControlButton>
-				</ControlItem>
-				<ControlItem>
+				</FormItem>
+				<FormItem>
 					<ControlButton id='Simulation' >Simular</ControlButton>  
-				</ControlItem>
-			</FormControls>
+				</FormItem>
+			</Row>
         </StyledForm>
     );
 };

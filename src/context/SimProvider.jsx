@@ -1,14 +1,11 @@
 import React, { createContext } from 'react';
-import useSimutation from '../hooks/useSimutation';
 
-export const simContext = createContext()
+export const simContext = createContext(null)
 
 const SimProvider = ({ children }) => {
 
-    const { simulation } = useSimutation(null)
-
     return (
-        <simContext.Provider value={simulation}>
+        <simContext.Provider value={''}>
             {children}
         </simContext.Provider>
     ) 
