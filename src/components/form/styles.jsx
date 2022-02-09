@@ -1,52 +1,53 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const StyledForm = styled.form`
-    width: 100%;
+  width: 100%;
 
-    @media only screen and (min-width: 768px) {
-        padding-top: 30px;
-        width: fit-content;
-    }
+  @media only screen and (min-width: 768px) {
+    padding-top: 30px;
+    width: fit-content;
+  }
 `
 
 export const Row = styled.div`
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    margin-bottom: 20px;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 20px;
+  align-items: center;
 
-    @media only screen and (min-width: 768px) {
-        flex-direction: row;
-        width: fit-content;
-        justify-content: flex-start;
-        margin-left: 10px;
-    }
+  @media only screen and (min-width: 768px) {
+    flex-direction: row;
+    width: fit-content;
+    justify-content: flex-start;
+    margin-left: 10px;
+  }
 `
 
 export const FormItem = styled.div`
-    width: 80%;
+  width: 80%;
 
-    @media only screen and (min-width: 768px) {
-        width: 35%;
-        margin-right: 100px;
-        min-width: 237px;
-    }
+  @media only screen and (min-width: 768px) {
+    width: 35%;
+    margin-right: 100px;
+    min-width: 237px;
+  }
 `
 
 export const ControlButton = styled.button`
-    background: ${props => props.id === 'Simulation' ? props.theme.primary : null };
-    font-size: 1.4rem;
+  background: ${(props) =>
+		props.id === 'Simulation' ? props.theme.primary : null};
+  font-size: 1.4rem;
+  width: 100%;
+  padding: 10px;
+  margin-top: 20px;
+  border-radius: 10px;
+
+  @media only screen and (min-width: 768px) {
     width: 100%;
-    padding: 10px;
-    margin-top: 20px;
-    border-radius: 10px;
+  }
 
-    @media only screen and (min-width: 768px) {
-        width: 100%;
-    }
-
-    :hover {
-        background: ${props => props.theme.secundary};
-    } 
+  :hover {
+    background: ${(props) => props.theme.secundary};
+  }
 `

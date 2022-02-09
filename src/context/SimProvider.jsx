@@ -1,14 +1,13 @@
-import React, { createContext } from 'react';
+import React, { createContext } from 'react'
 
 export const simContext = createContext(null)
 
-const SimProvider = ({ children }) => {
+function SimProvider({children}) {
+	return (
+		<simContext.Provider value="">
+			{children}
+		</simContext.Provider>
+	)
+}
 
-    return (
-        <simContext.Provider value={''}>
-            {children}
-        </simContext.Provider>
-    ) 
-};
-
-export default SimProvider;
+export default SimProvider
