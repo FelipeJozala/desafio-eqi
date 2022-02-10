@@ -40,7 +40,7 @@ export const ControlButton = styled.button`
   font-size: 1.4rem;
   width: 100%;
   padding: 10px;
-  margin-top: 20px;
+  margin-top: 40px;
   border-radius: 10px;
 
   @media only screen and (min-width: 768px) {
