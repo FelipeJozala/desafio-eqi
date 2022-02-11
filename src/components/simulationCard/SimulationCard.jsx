@@ -1,11 +1,11 @@
 import React from 'react'
-import { CardContainer } from './styles'
+import { CardContainer, P } from './styles'
 
 const SimulationCard = (props) => {
 	return (
 		<CardContainer>
-			<h4>Valor Total Investido</h4>
-			<p>{props.value}</p>
+			<h4>{props.tittle}</h4>
+			<P {...props} >{props.value}</P>
 		</CardContainer>
 	)
 }

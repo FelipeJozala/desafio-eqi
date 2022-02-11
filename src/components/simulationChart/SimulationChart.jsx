@@ -34,7 +34,6 @@ const SimulationChart = () => {
 		],
 	}
 
-	
 	ChartJS.register(
 		CategoryScale,
 		LinearScale,

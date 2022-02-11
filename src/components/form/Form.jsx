@@ -13,7 +13,7 @@ const Form = () => {
 
 	const { setApi } = useContext(ApiContext)
 	const [ indexType, setIndexType ] = useState('pos')
-	const [ revenu, setRevenu ] = useState('liquido')
+	const [ revenu, setRevenu ] = useState('bruto')
 
 	const handleIndexType = (e) => {
 		e.preventDefault()

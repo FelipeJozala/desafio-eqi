@@ -16,4 +16,10 @@ export const CardContainer = styled.div`
 	@media only screen and (min-width: 768px) {
     margin: 20px ;
   }
+
+`
+
+export const P = styled.p`
+	font-weight: 600;
+	color: ${props => props.isGreen ? props.theme.hover : props.theme.text}
 `

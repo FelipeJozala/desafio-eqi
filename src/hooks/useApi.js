@@ -8,8 +8,6 @@ const useApi = () => {
 	const [error, setError] = useState('')
 	
 	const baseUrl = 'http://localhost:8080/simulacoes'
-	
-	console.log(api)
 
 	useEffect(() => {
 		let isCancelled = false
