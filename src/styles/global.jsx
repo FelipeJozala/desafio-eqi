@@ -17,7 +17,7 @@ export default createGlobalStyle`
     }
 
     body {
-      width: 90%;
+      width: 90vw;
       background: ${(props) => props.theme.background};
       font-size: 1rem;
       color: ${(props) => props.theme.text};

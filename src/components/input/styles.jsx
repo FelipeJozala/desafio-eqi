@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import NumberFormat from 'react-number-format'
 
 export const InputContainer = styled.div`
   width: 100%;
@@ -16,7 +17,7 @@ export const Underline = styled.div`
     left: 0;
   }
 `
-export const StyledInput = styled.input`
+export const StyledInput = styled(NumberFormat)`
   outline: none;
   border: none;
   position: relative;

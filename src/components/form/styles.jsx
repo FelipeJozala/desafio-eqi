@@ -37,6 +37,8 @@ export const FormItem = styled.div`
 export const ControlButton = styled.button`
   background: ${(props) =>
 		props.id === 'Simulation' ? props.theme.primary : null};
+	border: ${(props) =>
+		props.id === 'Simulation' ? 'none' : '1px solid black'};
   font-size: 1.4rem;
   width: 100%;
   padding: 10px;

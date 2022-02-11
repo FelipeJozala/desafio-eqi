@@ -3,6 +3,7 @@ import SimulationCard from '../simulationCard/SimulationCard'
 import { Grid } from './styles'
 
 const SimulationCardGrid = () => {
+
 	return (
 		<Grid>
 			<SimulationCard/>
