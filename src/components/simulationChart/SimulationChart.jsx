@@ -42,7 +42,7 @@ const SimulationChart = () => {
 		Tooltip,
 		Legend
 	)
-	
+
 	const options = {
 		maintainAspectRatio: false,
 		layout: {

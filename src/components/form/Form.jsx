@@ -2,9 +2,12 @@ import React, {useContext, useEffect, useState} from 'react'
 import ButtonsGroup from '../buttons-group/ButtonsGroup'
 import Label from '../label/Label'
 import Input from '../input/Input'
-import { StyledForm , FormItem, Row, ControlButton } from './styles'
+import { StyledForm , FormItem, Row, ControlButton, Error } from './styles'
 import { ApiContext } from '../../context/ApiProvider'
 import { useForm, FormProvider } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup'
+import { validationSchema } from '../../validations/ValidationSchema'
+
 
 const Form = () => {
 	const initialRevenu = 'bruto'
@@ -12,20 +15,20 @@ const Form = () => {
 
 	const initialValues = {
 		indexType: initialIndex,
-		RevenuType: initialRevenu,
-		AporteInicial: '',
-		AporteMensal: '',
-		prazo: '',
-		revenue: '',
+		revenuType: initialRevenu,
+		aporteInicial: 0,
+		aporteMensal: 0,
+		prazo: 0,
+		revenu: 0,
 		ipca: '',
 		cdi: '',
-		loaded: false
 	}
 
 	const methods  = useForm({
-		defaultValues: initialValues
+		defaultValues: initialValues,
+		resolver: yupResolver(validationSchema)
 	})
-
+	const [ errors, setErros ] = useState(methods.formState.errors)
 	const [ dataManager , setDataManager ] = useState()
 	const { apiIndicators, setApi } = useContext(ApiContext)
 
@@ -36,8 +39,13 @@ const Form = () => {
 		setDataManager({...initialValues, ipca: ipca , cdi: cdi})
 	},[apiIndicators])
 
-	const onSubmit = (data) => {
-		console.log(data)
+	useEffect(() => {
+		setErros(methods.formState.errors)
+		console.log(errors)
+	},[methods.formState])
+
+	const onSubmit = async () => {
+		console.log(methods.formState.errors)
 		let {indexType,RevenuType } = dataManager
 		let params = {
 			revenu:RevenuType,
@@ -73,7 +81,7 @@ const Form = () => {
 				<Row>
 					<FormItem>		
 						<Label text='Rendimentos' hasTooltip tooltip='lorem'/>
-						<ButtonsGroup buttons={buttons.revenue} initial={'Bruto'} name='RevenuType' action={handleSimulationChange}/>
+						<ButtonsGroup buttons={buttons.revenue} initial={'Bruto'} name='revenuType' action={handleSimulationChange}/>
 					</FormItem>
 					<FormItem>
 						<Label text='Tipos de Indexação' hasTooltip tooltip='lorem' />
@@ -81,33 +89,39 @@ const Form = () => {
 					</FormItem>
 				</Row>
 				<Row>
-					<FormItem>		
-						<Label htmlFor='AporteInicial' text='Aporte Inicial'/>
-						<Input type='text' id='AporteInicial' name='AporteInicial'/>
+					<FormItem errors={errors.aporteInicial}>		
+						<Label htmlFor='aporteInicial' text='Aporte Inicial'/>
+						<Input type='text' id='AporteInicial' name='aporteInicial' />
+						<Error>{errors.aporteInicial?.message}</Error>
 					</FormItem>
 					<FormItem>
-						<Label htmlFor='AporteMensal' text='Aporte Mensal' />
-						<Input id='AporteMensal' name='AporteMensal'/>
+						<Label htmlFor='aporteMensal' text='Aporte Mensal' />
+						<Input id='AporteMensal' name='aporteMensal'/>
+						<Error>{errors.aporteMensal?.message}</Error>
 					</FormItem>
 				</Row>
 				<Row>		
 					<FormItem>		
 						<Label htmlFor='prazo' text='Prazo (em meses)' />
 						<Input id='prazo' name='prazo'/>
+						<Error>{errors.prazo?.message}</Error>
 					</FormItem>
 					<FormItem>
 						<Label htmlFor='revenu' text='Rentabilidade'  />
-						<Input id='revenu' name='revenue'/>
+						<Input id='revenu' name='revenu'/>
+						<Error>{errors.revenu?.message}</Error>
 					</FormItem>
 				</Row>
 				<Row>		
 					<FormItem>		
 						<Label htmlFor='ipca' text='IPCA (ao ano)' />
 						<Input id='ipca'  name='ipca'/>
+						<Error>{errors.ipca?.message}</Error>
 					</FormItem>
 					<FormItem>
 						<Label htmlFor='cdi' text='CDI (ao ano)' />
 						<Input id='cdi'  name='cdi'/>
+						<Error>{errors.cdi?.message}</Error>
 					</FormItem>
 				</Row>
 				<Row>

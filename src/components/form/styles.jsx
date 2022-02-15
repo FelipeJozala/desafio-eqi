@@ -53,3 +53,9 @@ export const ControlButton = styled.button`
     background: ${(props) => props.theme.secundary};
   }
 `
+export const Error = styled.div`
+	padding-top: 5px;
+	color: red;
+	font-size: 13px;
+	width: fit-content;
+`

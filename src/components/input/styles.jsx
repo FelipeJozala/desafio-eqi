@@ -33,4 +33,5 @@ export const StyledInput = styled.input`
   @media only screen and (min-width: 768px) {
     margin-top: 20px;
   }
+
 `
