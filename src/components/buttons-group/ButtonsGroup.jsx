@@ -5,7 +5,6 @@ import {
 
 function ButtonsGroup({buttons, initial, action, ...rest}) {
 	const lastButton = (buttons.length - 1)
-
 	const defaultActive = initial
 
 	const [active, setActive] = useState(defaultActive)

@@ -6,7 +6,10 @@ import { LightTheme } from './styles/themes/themes'
 import Simulation from './components/simulation/Simulation'
 import Form from './components/form/Form'
 
+
+
 function App() {
+
 	return (
 		<ApiProvider>
 			<ThemeProvider theme={LightTheme}>
