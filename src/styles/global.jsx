@@ -12,6 +12,7 @@ export default createGlobalStyle`
   	}
 
     html {
+			max-width: 100vw;
       display: flex;
       justify-content: center;
     }
@@ -28,8 +29,8 @@ export default createGlobalStyle`
 			flex-direction: column;
 
 			@media only screen and (min-width: 768px) {
-        flex-direction: row;
-      }
+				flex-direction: row;
+			}
 		}
 
 		aside {

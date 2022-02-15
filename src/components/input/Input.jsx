@@ -1,11 +1,11 @@
 import React from 'react'
 import { StyledInput, Underline, InputContainer } from './styles'
 
-const Input = ( props ) => {
+const Input = ({ name ,...rest}) => {
 	return (
 		<InputContainer>
 			<Underline>
-				<StyledInput {...props} />
+				<StyledInput  name={name} {...rest} />
 			</Underline>
 		</InputContainer>
 	)

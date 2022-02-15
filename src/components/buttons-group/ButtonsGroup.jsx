@@ -3,10 +3,10 @@ import {
 	LeftButton, RightButton, MiddleButton, GroupContainer,
 } from './styles'
 
-function ButtonsGroup(props) {
-	const lastButton = (props.buttons.length - 1)
+function ButtonsGroup({buttons, initial, action, ...rest}) {
+	const lastButton = (buttons.length - 1)
 
-	const defaultActive = props.initial
+	const defaultActive = initial
 
 	const [active, setActive] = useState(defaultActive)
 
@@ -15,18 +15,18 @@ function ButtonsGroup(props) {
 	}
 
 	return (
-		<GroupContainer onClickCapture={props.action}>
-			{props.buttons.map((button, index) => {
+		<GroupContainer onClickCapture={action}>
+			{buttons.map((button, index) => {
 				switch (index) {
 				case 0:
 					return (
-						<LeftButton key={index} active={active === button.name} value={button.value} onClick={() => handleActivation(button.name)}>{button.name}</LeftButton>)
+						<LeftButton key={index} active={active === button.name} value={button.value} onClick={() => handleActivation(button.name)} {...rest}>{button.name}</LeftButton>)
 
 				case lastButton:
-					return (<RightButton key={index} active={active === button.name} value={button.value} onClick={() => handleActivation(button.name)}>{button.name}</RightButton>)
+					return (<RightButton key={index} active={active === button.name} value={button.value} onClick={() => handleActivation(button.name)} {...rest}>{button.name}</RightButton>)
 
 				default:
-					return (<MiddleButton key={index} active={active === button.name} value={button.value} onClick={() => handleActivation(button.name)}>{button.name}</MiddleButton>)
+					return (<MiddleButton key={index} active={active === button.name} value={button.value} onClick={() => handleActivation(button.name)} {...rest}>{button.name}</MiddleButton>)
 				}
 			})}
 		</GroupContainer>

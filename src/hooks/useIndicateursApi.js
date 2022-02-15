@@ -6,8 +6,8 @@ const useIndicateursApi = () => {
 	const urlIndicateurs = 'http://localhost:8080/indicadores'
 
 	const [ api ] = useState(urlIndicateurs)
-	const [ cdi, setCdi] = useState('')
-	const [ipca , setIpca] = useState('')
+	const [ apiCdi, setApiCdi] = useState('')
+	const [	apiIpca, setApiIpca] = useState('')
 	const [loading, setloading] = useState(false)
 	const [error, setError] = useState('')
 	
@@ -24,8 +24,8 @@ const useIndicateursApi = () => {
 				await axios
 					.get(url)
 					.then((resp) => {
-						setCdi(resp.data[0].valor)
-						setIpca(resp.data[1].valor)
+						setApiCdi(`${resp.data[0].valor}%`)
+						setApiIpca(`${resp.data[1].valor}%`)
 					})
 					.catch((err) => {
 						setError(err)
@@ -42,7 +42,7 @@ const useIndicateursApi = () => {
 		}
 	},[])
 
-	return { cdi, ipca, error, loading }
+	return { apiCdi, apiIpca, error, loading }
 }
 
 export default useIndicateursApi
