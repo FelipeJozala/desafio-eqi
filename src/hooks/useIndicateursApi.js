@@ -1,48 +1,36 @@
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import axios from 'axios'
 
 const useIndicateursApi = () => {
 
 	const urlIndicateurs = 'http://localhost:8080/indicadores'
 
-	const [ api ] = useState(urlIndicateurs)
-	const [ apiCdi, setApiCdi] = useState('')
-	const [	apiIpca, setApiIpca] = useState('')
-	const [loading, setloading] = useState(false)
+	const [	apiIndicators , setApiIndicators] = useState({})
+	const [loadingIndicators, setloadingIndicators] = useState(false)
 	const [error, setError] = useState('')
 	
-
 	useEffect(() => {
 
-		let isCancelled = false
+		const fetchIndicators = async () => {
+			
+			setloadingIndicators(true)
+			await axios
+				.get(urlIndicateurs)
+				.then((resp) => {
+					setApiIndicators({cdi: resp.data[0].valor, ipca:resp.data[1].valor})
+				})
+				.catch((err) => {
+					setError(err)
+				})
+				.finally(() => {
+					setloadingIndicators(false)
+				})}
 		
-		const fetchData = async (url) => {
-			if (url === null) {
-				return
-			} else if (!isCancelled) { 
-				setloading(true)
-				await axios
-					.get(url)
-					.then((resp) => {
-						setApiCdi(`${resp.data[0].valor}%`)
-						setApiIpca(`${resp.data[1].valor}%`)
-					})
-					.catch((err) => {
-						setError(err)
-					})
-					.finally(() => {
-						setloading(false)
-					})}
-		}
 
-	
-		fetchData(api)
-		return () => {
-			isCancelled = true
-		}
+		fetchIndicators()
 	},[])
 
-	return { apiCdi, apiIpca, error, loading }
+	return { apiIndicators, error, loadingIndicators}
 }
 
 export default useIndicateursApi

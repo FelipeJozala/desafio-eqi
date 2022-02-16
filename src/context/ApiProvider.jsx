@@ -6,9 +6,10 @@ export const ApiContext = createContext(null)
 
 const ApiProvider = ({children}) => {
 	const {ApiData, ApiError, ApiLoading, setApi } = useApi()
-	const { apiCdi, apiIpca } = useIndicateursApi()
+	const { apiIndicators, loadingIndicators } = useIndicateursApi()
+	
 	return (
-		<ApiContext.Provider value={{apiCdi, apiIpca, ApiData, ApiError, ApiLoading, setApi}}>
+		<ApiContext.Provider value={{apiIndicators, loadingIndicators , ApiData, ApiError, ApiLoading, setApi }}>
 			{children}
 		</ApiContext.Provider>
 	)

@@ -9,7 +9,7 @@ export const Underline = styled.div`
   ::after {
     content: '';
     position: absolute;
-    background: ${(props) => props.theme.text};
+    background: ${(props) => props.error ? 'red': props.theme.text };
     width: 100%;
     height: 2px;
     bottom: -2px;
@@ -26,11 +26,8 @@ export const StyledInput = styled.input`
   letter-spacing: 1.7px;
   font-size: 1.3rem;
 
-  :invalid {
-    background-color: red;
-  }
-
   @media only screen and (min-width: 768px) {
     margin-top: 20px;
   }
+
 `
