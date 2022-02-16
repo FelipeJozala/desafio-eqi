@@ -10,7 +10,7 @@ Este projeto faz parte do processo seletivo iniciado pela EQI - investimentos e 
 <br>
 
 ## 📝 Tabela de Conteúdos
----
+
 - [Sobre](#Sobre)
 - [Getting Started](#getting_started)
 - [Deployment](#deployment)
@@ -22,7 +22,6 @@ Este projeto faz parte do processo seletivo iniciado pela EQI - investimentos e 
 <br>
 
 ## 🧐 Sobre 
----
 
 Este repositório contem um simulador de investimentos que permitir ao usuário realizar uma simulação de rendimentos de acordo com o tipo de indexação e tipo de rendimento escolhido. 
 O projeto faz parte do processo seletivo iniciado pela EQI - investimentos e tem como base os requisitos e wireframes apresentados pela empresa.
@@ -30,7 +29,6 @@ O projeto faz parte do processo seletivo iniciado pela EQI - investimentos e tem
 <br>
 
 ## 🏁 Como Executar
----
 ## Download
 #### Terminal:
 ```shell 
@@ -58,7 +56,6 @@ o App estara disponível em `localhost:3000`
 <br>
 
 ## ⛏️ Ferramentas Utilizadas <a name = "built_using"></a>
----
 - [React](https://pt-br.reactjs.org/)
 - [JSON Server](https://www.npmjs.com/package/json-server) 
 - [Styled Components](https://styled-components.com/)
