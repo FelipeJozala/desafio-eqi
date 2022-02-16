@@ -2,12 +2,12 @@ import React from 'react'
 import { useFormContext } from 'react-hook-form'
 import { StyledInput, Underline, InputContainer} from './styles'
 
-const Input = ({ name,...rest}) => {
+const Input = ({ name, errors, ...rest}) => {
 	const { register } = useFormContext()
 	return (
 		<>
 			<InputContainer>
-				<Underline >
+				<Underline error={errors?.[name] ? true : false}>
 					<StyledInput {...register(name)} {...rest} />
 				</Underline>
 			</InputContainer>

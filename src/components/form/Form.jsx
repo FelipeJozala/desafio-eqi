@@ -6,8 +6,7 @@ import { StyledForm , FormItem, Row, ControlButton, Error } from './styles'
 import { ApiContext } from '../../context/ApiProvider'
 import { useForm, FormProvider } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { validationSchema } from '../../validations/ValidationSchema'
-
+import { validationSchema } from '../../utils/validations/ValidationSchema'
 
 const Form = () => {
 	const initialRevenu = 'bruto'
@@ -16,10 +15,10 @@ const Form = () => {
 	const initialValues = {
 		indexType: initialIndex,
 		revenuType: initialRevenu,
-		aporteInicial: 0,
-		aporteMensal: 0,
-		prazo: 0,
-		revenu: 0,
+		aporteInicial: '',
+		aporteMensal: '',
+		prazo: '',
+		revenu: '',
 		ipca: '',
 		cdi: '',
 	}
@@ -41,18 +40,15 @@ const Form = () => {
 
 	useEffect(() => {
 		setErros(methods.formState.errors)
-		console.log(errors)
 	},[methods.formState])
 
 	const onSubmit = async () => {
-		console.log(methods.formState.errors)
 		let {indexType,RevenuType } = dataManager
 		let params = {
 			revenu:RevenuType,
 			indexType:indexType
 		} 
 		setApi(params)
-		
 	}
 
 	const handleSimulationChange = (e) => {
@@ -89,38 +85,38 @@ const Form = () => {
 					</FormItem>
 				</Row>
 				<Row>
-					<FormItem errors={errors.aporteInicial}>		
-						<Label htmlFor='aporteInicial' text='Aporte Inicial'/>
-						<Input type='text' id='AporteInicial' name='aporteInicial' />
+					<FormItem>		
+						<Label htmlFor='aporteInicial' text='Aporte Inicial' errors={errors}/>
+						<Input type='text' id='AporteInicial' name='aporteInicial' errors={errors}/>
 						<Error>{errors.aporteInicial?.message}</Error>
 					</FormItem>
 					<FormItem>
-						<Label htmlFor='aporteMensal' text='Aporte Mensal' />
-						<Input id='AporteMensal' name='aporteMensal'/>
+						<Label htmlFor='aporteMensal' text='Aporte Mensal' errors={errors} />
+						<Input id='AporteMensal' name='aporteMensal' errors={errors}/>
 						<Error>{errors.aporteMensal?.message}</Error>
 					</FormItem>
 				</Row>
 				<Row>		
 					<FormItem>		
-						<Label htmlFor='prazo' text='Prazo (em meses)' />
-						<Input id='prazo' name='prazo'/>
+						<Label htmlFor='prazo' text='Prazo (em meses)' errors={errors} />
+						<Input id='prazo' name='prazo' errors={errors}/>
 						<Error>{errors.prazo?.message}</Error>
 					</FormItem>
 					<FormItem>
-						<Label htmlFor='revenu' text='Rentabilidade'  />
-						<Input id='revenu' name='revenu'/>
+						<Label htmlFor='revenu' text='Rentabilidade' errors={errors} />
+						<Input id='revenu' name='revenu' errors={errors}/>
 						<Error>{errors.revenu?.message}</Error>
 					</FormItem>
 				</Row>
 				<Row>		
 					<FormItem>		
-						<Label htmlFor='ipca' text='IPCA (ao ano)' />
-						<Input id='ipca'  name='ipca'/>
+						<Label htmlFor='ipca' text='IPCA (ao ano)' errors={errors} />
+						<Input id='ipca'  name='ipca' errors={errors}/>
 						<Error>{errors.ipca?.message}</Error>
 					</FormItem>
 					<FormItem>
-						<Label htmlFor='cdi' text='CDI (ao ano)' />
-						<Input id='cdi'  name='cdi'/>
+						<Label htmlFor='cdi' text='CDI (ao ano)' errors={errors}/>
+						<Input id='cdi'  name='cdi' errors={errors}/>
 						<Error>{errors.cdi?.message}</Error>
 					</FormItem>
 				</Row>
