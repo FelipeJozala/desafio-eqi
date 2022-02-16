@@ -1,5 +1,6 @@
 <div align="center">
- <img width=500px src="./docs/simuladorDeInvestimentos.png" alt="Project logo">
+ <img width=500px src="./docs/Desktop-gif.gif" alt="Project logo">
+ <img height=225px src="./docs/Mobile-gif.gif" alt="Project logo">
 </div>
 
 <br>
