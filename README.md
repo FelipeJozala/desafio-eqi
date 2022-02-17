@@ -137,10 +137,10 @@ import Label from '../label/Label'
 - [JSON Server](https://www.npmjs.com/package/json-server)
 - [Styled Components](https://styled-components.com/)
 - [React-hook-form](https://react-hook-form.com/)
-- [Axio](https://axios-http.com/docs/intro)
+- [Axios](https://axios-http.com/docs/intro)
 - [Chartjs](https://www.chartjs.org/)
 - [Yup](https://github.com/jquense/yup)
-- [Axio](https://axios-http.com/docs/intro)
+
 <br>
  
  
