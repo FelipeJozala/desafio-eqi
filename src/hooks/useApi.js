@@ -11,6 +11,7 @@ const useApi = () => {
 
 	useEffect(() => {
 		let isCancelled = false
+		console.log(api)
 		const fetchData = async () => {
 			if (api === null || api === null) {
 				return

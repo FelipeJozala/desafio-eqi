@@ -43,9 +43,9 @@ const Form = () => {
 	},[methods.formState])
 
 	const onSubmit = async () => {
-		let {indexType,RevenuType } = dataManager
+		let {indexType,revenuType } = dataManager
 		let params = {
-			revenu:RevenuType,
+			revenu:revenuType,
 			indexType:indexType
 		} 
 		setApi(params)
