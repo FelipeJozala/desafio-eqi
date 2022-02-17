@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import {
 	LeftButton, RightButton, MiddleButton, GroupContainer,
 } from './styles'
+import Checked from '../checked/Checked'
 
 function ButtonsGroup({buttons, initial, action, ...rest}) {
 	const lastButton = (buttons.length - 1)
@@ -19,13 +20,17 @@ function ButtonsGroup({buttons, initial, action, ...rest}) {
 				switch (index) {
 				case 0:
 					return (
-						<LeftButton key={index} active={active === button.name} value={button.value} onClick={() => handleActivation(button.name)} {...rest}>{button.name}</LeftButton>)
+						<LeftButton key={index} active={active === button.name} value={button.value} onClick={() => handleActivation(button.name)} {...rest}>
+							<Checked/>{button.name}</LeftButton>)
 
 				case lastButton:
-					return (<RightButton key={index} active={active === button.name} value={button.value} onClick={() => handleActivation(button.name)} {...rest}>{button.name}</RightButton>)
+					return (<RightButton key={index} active={active === button.name} value={button.value} onClick={() => handleActivation(button.name)} {...rest}>
+						<Checked/>{button.name}</RightButton>)
 
 				default:
-					return (<MiddleButton key={index} active={active === button.name} value={button.value} onClick={() => handleActivation(button.name)} {...rest}>{button.name}</MiddleButton>)
+					return (<MiddleButton key={index} active={active === button.name} value={button.value} onClick={() => handleActivation(button.name)} {...rest}>
+						<Checked/>
+						{button.name}</MiddleButton>)
 				}
 			})}
 		</GroupContainer>

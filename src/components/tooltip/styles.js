@@ -19,6 +19,7 @@ export const TooltipCard = styled.div`
   left: -150px;
   top: 20px;
   visibility: ${(props) => (props.tooltip ? 'visible' : 'hidden')};
+	z-index: 1;
 `
 
 export const TooltipContainer = styled.div`

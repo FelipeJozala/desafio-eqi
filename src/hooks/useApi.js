@@ -10,8 +10,7 @@ const useApi = () => {
 	const baseUrl = '/simulacoes'
 
 	useEffect(() => {
-		let isCancelled = false
-		console.log(api)
+		let isCancelled = false	
 		const fetchData = async () => {
 			if (api === null || api === null) {
 				return

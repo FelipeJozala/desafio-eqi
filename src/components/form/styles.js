@@ -47,11 +47,13 @@ export const ControlButton = styled.button`
 
   @media only screen and (min-width: 768px) {
     width: 100%;
-  }
+  
+		:hover {
+    	background: ${(props) => props.theme.secundary};
+  	}
+	}
 
-  :hover {
-    background: ${(props) => props.theme.secundary};
-  }
+  
 `
 export const Error = styled.div`
 	padding-top: 5px;
