@@ -1,65 +1,138 @@
+# Desafio EQI - Simulador de Investimentos
+Este projeto faz parte do processo seletivo iniciado pela EQI - investimentos e tem como base os requisitos e wireframes apresentados pela empresa.
+ 
+## Demonstração
 <div align="center">
- <img width=500px src="./docs/Desktop-gif.gif" alt="Project logo">
- <img height=225px src="./docs/Mobile-gif.gif" alt="Project logo">
+<img width=500px src="./docs/Desktop-gif.gif" alt="Project logo">
+<img height=225px src="./docs/Mobile-gif.gif" alt="Project logo">
 </div>
 
 <br>
-
-# Desafio EQI - Simulador de Investimentos
-Este projeto faz parte do processo seletivo iniciado pela EQI - investimentos e tem como base os requisitos e wireframes apresentados pela empresa.
-
-<br>
-
-## 📝 Tabela de Conteúdos
-
+ 
+## Tabela de Conteúdos
 - [Sobre](#sobre)
-- [Como Executar](#executar)
-- [Ferramentas Utilizadas](#tools)
-
+- [Rodando localmente](#executar)
+- [Hooks e Components](#components)
+ - [Hooks](#hooks)
+   - [UseApi](#api)
+   - [UseIndicateursApi](#indicateurs)
+ - [Components](#comp)
+   - [ButtonsGroup](#group)
+- [Stack utilizada](#tools)
 <br>
-
-## 🧐 Sobre <a name = "sobre"></a>
-
-Este repositório contem um simulador de investimentos que permitir ao usuário realizar uma simulação de rendimentos de acordo com o tipo de indexação e tipo de rendimento escolhido. 
+## Sobre <a name = "sobre"></a>
+Este repositório contém uma aplicação web que tem como principal objetivo, realizar uma simulação de rendimentos baseado em parâmetros escolhidos pelo usuário.
+O escopo do projeto não inclui a geração de dados reais, estes são carregados de uma API e representam uma projeção fictícia.
 O projeto faz parte do processo seletivo iniciado pela EQI - investimentos e tem como base os requisitos e wireframes apresentados pela empresa.
-
 <br>
-
-## 🏁 Como Executar <a name = "executar"></a>
-#### Download
-##### Terminal:
-```shell 
+## Rodando localmente <a name = "executar"></a>
+ 
+<br>
+ 
+### Download <a name = "download"></a>
+ 
+```bash
 git clone https://github.com/FelipeJozala/desafio-eqi.git
 ```
-ou faça o download do repositorio:
-
-[Simulador de Investimentos (ZIP)](https://github.com/eqi-investimentos/desafio-fake-api/archive/refs/heads/main.zip)
-#### Instalação
-```shell 
-npm i 
+ou faça o download do repositório:  [Simulador de Investimentos (ZIP)](https://github.com/eqi-investimentos/desafio-fake-api/archive/refs/heads/main.zip)
+ 
+<br>
+ 
+### Entre no diretório do projeto:
+ 
+```bash
+ cd desafio-eqi
 ```
-#### Executar o Servido (Fake-API)
-```shell 
-npm run server
+### Instale as dependências
+```bash
+npm install
 ```
-A Fake-API estara disponível em `localhost:8080`
-
-#### Executar o App
-```shell 
+### Inicie a aplicação
+```bash
 npm start
 ```
-o App estara disponível em `localhost:3000`
+o App estará disponível em `localhost:3000` e a Fake-API estará em `localhost:3001`
 
 <br>
 
-## ⛏️ Ferramentas Utilizadas <a name = "tools"></a>
+## Hooks e Components <a name = "components"></a>
+Custom hooks e componentes desenvolvidos para esta aplicação.
+
+<br>
+
+### Hooks <a name = "hooks"></a>
+#### useApi <a name = "api"></a>
+Custom hook que recebe um objeto com os parâmetros a serem filtrados em `/simulacoes`
+```javascript
+import useApi from './hooks/useApi'
+{ ApiData, ApiError, ApiLoading, setApi } = useApi()
+let params = {
+          revenu: '', //tipoRendimento
+          indexType: '' //tipoIndexacao
+      }
+setApi(params)
+```
+| Parâmetro   | Tipo       | Descrição                           |
+| :---------- | :--------- | :---------------------------------- |
+| `setApi ` | `object` | define os parâmetros da chamada a Api, retorna `{ ApiData, ApiError, ApiLoading }` |
+| `ApiData` | `object` | Retorna os resultados da simulação |
+| `ApiError` | `object` | Retorna os erros da chamada da Api, caso ocorram |
+| `ApiLoading` | `boolean` | Retorna os `true` durante a chamada a Api e posteriormente `false`  |
+#### useIndicateursApi <a name = "indicateurs"></a>
+Custom hook que realiza a chamada a `/indicadores`, não aceita parametros e é carregado junto com a aplicação.
+```javascript
+import useIndicateursApi from './hooks/useIndicateursApi'
+{ apiIndicators, error, loadingIndicators} = useIndicateursApi()
+```
+| Parâmetro   | Tipo       | Descrição                           |
+| :---------- | :--------- | :---------------------------------- |
+| `apiIndicators` | `object` | Retorna os resultados da simulação |
+| `error` | `object` | Retorna os erros da chamada da Api, caso ocorram |
+| `loadingIndicators` | `boolean` | Retorna os `true` durante a chamada a Api e posteriormente `false`  |
+
+<br>
+
+### Components <a name = "comp"></a>
+#### ButtonsGroup <a name = "group"></a>
+Recebe um array de objetos com os atributos `name` e `value` e retorna um grupo de botões.
+```javascript
+import ButtonsGroup from '../buttons-group/ButtonsGroup'
+const buttons = [
+  {name: 'PRÉ', value: 'pre'},
+  {name: 'PÓS',value: 'pos'},
+  {name: 'FIXADO',value: 'ipca'}
+]
+<ButtonsGroup buttons={buttons} initial={'PÓS'} action={ () => {} }/>
+```
+| Parâmetro   | Tipo       | Descrição                           |
+| :---------- | :--------- | :---------------------------------- |
+| `buttons` | `array` | Recebe um array com os dados dos botões |
+| `initial` | `string` | Seleciona o botão considerado como `default`, usa como referência o parâmetro `name` |
+| `action` | `function` | Recebe uma `function` que é executada em `onClick`  |
+ 
+ <br>
+
+ #### Label + Tooltip <a name = "tootip"></a>
+
+```javascript
+<Label text='Rendimentos' hasTooltip tooltip='Lorem ipsum dolor sit amet.'/>
+```
+| Parâmetro   | Tipo       | Descrição                           |
+| :---------- | :--------- | :---------------------------------- |
+| `text` | `string` | Texto exibido como `label` |
+| `hasTooltip` | `none` | Se presente, adiciona o icone de Informação |
+| `tooltip` | `string` | Texto exibido quando em `hover` sobre o icone de Informação  |
+ 
+<br>
+ 
+## Ferramentas utilizadas <a name = "tools"></a>
 - [React](https://pt-br.reactjs.org/)
-- [JSON Server](https://www.npmjs.com/package/json-server) 
+- [JSON Server](https://www.npmjs.com/package/json-server)
 - [Styled Components](https://styled-components.com/)
 - [React-hook-form](https://react-hook-form.com/)
 - [Axio](https://axios-http.com/docs/intro)
 - [Chartjs](https://www.chartjs.org/)
 - [Yup](https://github.com/jquense/yup)
 - [Axio](https://axios-http.com/docs/intro)
-
 <br>
+ 

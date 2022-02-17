@@ -3,7 +3,7 @@ import axios from 'axios'
 
 const useIndicateursApi = () => {
 
-	const urlIndicateurs = 'http://localhost:8080/indicadores'
+	const urlIndicateurs = '/indicadores'
 
 	const [	apiIndicators , setApiIndicators] = useState({})
 	const [loadingIndicators, setloadingIndicators] = useState(false)

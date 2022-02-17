@@ -66,22 +66,22 @@ const Form = () => {
 		],
 		indexType: [
 			{name: 'PRÉ', value: 'pre'},
-			{name: 'POS',value: 'pos'},
+			{name: 'PÓS',value: 'pos'},
 			{name: 'FIXADO',value: 'ipca'}
 		]
 	}
 	return (
 		<FormProvider {...methods}>
-			<StyledForm onSubmit={methods.handleSubmit(onSubmit)}>
+			<StyledForm onSubmit={methods.handleSubmit(onSubmit)} autocomplete="off" >
 				<h2>Simulador</h2>
 				<Row>
 					<FormItem>		
-						<Label text='Rendimentos' hasTooltip tooltip='lorem'/>
+						<Label text='Rendimentos' hasTooltip tooltip='Lorem ipsum dolor sit amet.'/>
 						<ButtonsGroup buttons={buttons.revenue} initial={'Bruto'} name='revenuType' action={handleSimulationChange}/>
 					</FormItem>
 					<FormItem>
-						<Label text='Tipos de Indexação' hasTooltip tooltip='lorem' />
-						<ButtonsGroup buttons={buttons.indexType} initial={'POS'} name='indexType' action={handleSimulationChange} />
+						<Label text='Tipos de Indexação' hasTooltip tooltip='Lorem ipsum dolor sit amet.' />
+						<ButtonsGroup buttons={buttons.indexType} initial={'PÓS'} name='indexType' action={handleSimulationChange} />
 					</FormItem>
 				</Row>
 				<Row>

@@ -7,7 +7,7 @@ const useApi = () => {
 	const [loading, setloading] = useState(false)
 	const [error, setError] = useState('')
 	
-	const baseUrl = 'http://localhost:8080/simulacoes'
+	const baseUrl = '/simulacoes'
 
 	useEffect(() => {
 		let isCancelled = false
