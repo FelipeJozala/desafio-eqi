@@ -94,8 +94,11 @@ import useIndicateursApi from './hooks/useIndicateursApi'
 | `apiIndicators` | `object` | Retorna os resultados da simulação |
 | `error` | `object` | Retorna os erros da chamada da Api, caso ocorram |
 | `loadingIndicators` | `boolean` | Retorna os `true` durante a chamada a Api e posteriormente `false`  |
+
 <br>
+
 ### Components <a name = "comp"></a>
+
 #### ButtonsGroup <a name = "group"></a>
 Recebe um array de objetos com os atributos `name` e `value` e retorna um grupo de botões.
 ```javascript
@@ -112,7 +115,9 @@ const buttons = [
 | `buttons` | `array` | Recebe um array com os dados dos botões |
 | `initial` | `string` | Seleciona o botão considerado como `default`, usa como referência o parâmetro `name` |
 | `action` | `function` | Recebe uma `function` que é executada em `onClick`  |
+
 <br>
+
 #### Label + Tooltip <a name = "tooltip"></a>
 ```javascript
 import Label from '../label/Label'
