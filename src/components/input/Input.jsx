@@ -8,7 +8,7 @@ const Input = ({ name, errors, ...rest}) => {
 		<>
 			<InputContainer>
 				<Underline error={errors?.[name] ? true : false}>
-					<StyledInput {...register(name)} {...rest} />
+					<StyledInput {...register(name)} {...rest}/>
 				</Underline>
 			</InputContainer>
 		</>
