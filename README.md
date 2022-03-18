@@ -1,5 +1,5 @@
 # Desafio EQI - Simulador de Investimentos
-Este projeto faz parte do processo seletivo iniciado pela EQI - investimentos e tem como base os requisitos e wireframes apresentados pela empresa.
+O projeto foi desenvolvido para demonstração de conhecimentos e tem como base os requisitos e wireframes apresentados pela empresa EQI - investimentos.
  
 <br>
  
@@ -33,7 +33,7 @@ Este projeto faz parte do processo seletivo iniciado pela EQI - investimentos e 
 ## Sobre <a name = "sobre"></a>
 Este repositório contém uma aplicação web que tem como principal objetivo, realizar uma simulação de rendimentos baseado em parâmetros escolhidos pelo usuário.
 O escopo do projeto não inclui a geração de dados reais, estes são carregados de uma API e representam uma projeção fictícia.
-O projeto faz parte do processo seletivo iniciado pela EQI - investimentos e tem como base os requisitos e wireframes apresentados pela empresa.
+O projeto foi desenvolvido para demonstração de conhecimentos e tem como base os requisitos e wireframes apresentados pela empresa solicitante.
  
 <br>
  
